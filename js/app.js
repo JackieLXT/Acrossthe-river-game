@@ -3,7 +3,7 @@ var Enemy = function(x,y) {
     // 要应用到每个敌人的实例的变量写在这里
     // 我们已经提供了一个来帮助你实现更多
     this.x=x;
-    this.y=y/*Math.random() * 400*/;
+    this.y=y;
     this.speed = Math.random() * 200 + 100;
     // 敌人的图片或者雪碧图，用一个我们提供的工具函数来轻松的加载文件
     this.sprite = 'images/enemy-bug.png';
@@ -36,19 +36,11 @@ var Player = function (x,y) {
 var count=0;
 Player.prototype.update = function (dt) {
     if(this.y < -10){
-       alert('恭喜通关！ play again');
-       this.x = 200;
-       this.y = 403;
-       
+      $('div').css("display","block");   
     }
     this.checkCollisions();
 };
-/*function(){
-    if(this.y<100){
-        alert("恭喜通关")
-    }
-}
-*/
+
 
 Player.prototype.handleInput = function (allowedKeys) {
     switch(allowedKeys){
@@ -57,7 +49,7 @@ Player.prototype.handleInput = function (allowedKeys) {
         this.x -= 101;}
         break;
         case 'up':
-        if (this.y>-94){
+        if (this.y>10){
         this.y -= 83;}
         break;
         case 'right':
@@ -78,7 +70,7 @@ Player.prototype.render = function() {
 // 把所有敌人的对象都放进一个叫 allEnemies 的数组里面
 // 把玩家对象放进一个叫 player 的变量里面
 var allEnemies= [];
-for(var i=0;i<1;i++){
+for(var i=0;i<3;i++){
   var bugs = new Enemy(-30, 83 * (i % 3) + 72);
 
   allEnemies.push(bugs);
@@ -116,5 +108,9 @@ document.addEventListener('keyup', function(e) {
      }
  }
 };
+function open_win() //开始新的游戏
+{
+location.reload();
+}
 
 
