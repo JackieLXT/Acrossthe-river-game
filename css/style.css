@@ -1,3 +1,14 @@
 body {
     text-align: center;
 }
+div{
+	text-align: center;
+    background-color: #fff;
+    display: none;
+    position:absolute; 
+    margin-top: 200px;
+    margin-left: 570px;
+    width: 200px;
+    height: 100px;
+    padding-top: 20px;
+}
