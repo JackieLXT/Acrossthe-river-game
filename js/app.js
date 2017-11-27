@@ -16,7 +16,7 @@ Enemy.prototype.update = function(dt) {
     // 都是以同样的速度运行的
     this.x += this.speed * dt;
     if (this.x > 505){
-        this.x = 0;
+        this.x = -10;
     };
 };
 
@@ -44,22 +44,28 @@ Player.prototype.update = function (dt) {
 
 Player.prototype.handleInput = function (allowedKeys) {
     switch(allowedKeys){
+         var TILE_WIDTH = 101,
+             TILE_HEIGHT = 83;   
         case 'left':
-        if(this.x>90){
-        this.x -= 101;}
-        break;
+            if(this.x>90){
+                this.x -= TILE_WIDTH;
+            }
+            break;
         case 'up':
-        if (this.y>10){
-        this.y -= 83;}
-        break;
+            if (this.y>10){
+                this.y -= TILE_HEIGHT;
+            }
+            break;
         case 'right':
-        if(this.x<400){
-        this.x += 101;}
-        break;
+            if(this.x<400){
+                this.x += TILE_WIDTH;
+            }
+            break;
         case 'down':
-        if(this.y<350)
-        this.y += 83;
-        break;
+            if(this.y<350){
+                this.y += TILE_HEIGHT;
+            }
+            break;
     }
 };
 Player.prototype.render = function() {
