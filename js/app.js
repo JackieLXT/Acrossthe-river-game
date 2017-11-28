@@ -1,4 +1,6 @@
-// 这是我们的玩家要躲避的敌人 
+// 这是我们的玩家要躲避的敌人
+var TILE_WIDTH = 101,
+    TILE_HEIGHT = 83;
 var Enemy = function(x,y) {
     // 要应用到每个敌人的实例的变量写在这里
     // 我们已经提供了一个来帮助你实现更多
@@ -43,9 +45,7 @@ Player.prototype.update = function (dt) {
 
 
 Player.prototype.handleInput = function (allowedKeys) {
-    switch(allowedKeys){
-         var TILE_WIDTH = 101,
-             TILE_HEIGHT = 83;   
+    switch(allowedKeys){   
         case 'left':
             if(this.x>90){
                 this.x -= TILE_WIDTH;
